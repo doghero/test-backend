@@ -1,0 +1,34 @@
+version: '3.7'
+
+x-default: &default
+  env_file: .env
+  depends_on:
+    - db
+  entrypoint: './entrypoint.sh'
+  stdin_open: true
+  tty: true
+  volumes:
+      - .:/test_backend
+services:
+  web:
+    <<: *default
+    build:
+      context: .
+      args:
+        - USER
+        - UID
+    command: './bin/rails server -b 0.0.0.0 -p 3000 --pid /tmp/rails_server.pid'
+    command: bash
+    ports:
+      - '3000:3000'
+    extra_hosts:
+      - 'test_backend.doghero.local: 127.0.0.1'
+  db:
+    image: postgres:11.4
+    environment:
+      POSTGRES_USER: test_backend
+      POSTGRES_PASSWORD: password
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
