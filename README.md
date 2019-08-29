@@ -1,24 +1,4 @@
-# README
+# DogHero
+## Teste para desenvolvedor Backend 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+As informações de instalação e enunciado do teste podem ser encontradas na [wiki](https://github.com/doghero/test-backend/wiki).
